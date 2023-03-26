@@ -9,7 +9,7 @@ import lombok.Setter;
 
 @Entity @AllArgsConstructor @NoArgsConstructor @Table(name="CANDIDATES")
 public class Candidate {
-    @Id
+    @Id @Setter @Getter
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Getter @Setter
@@ -37,4 +37,5 @@ public class Candidate {
                 ", preferences='" + preferences + '\'' +
                 '}';
     }
+
 }

@@ -9,11 +9,11 @@ import lombok.Setter;
 
 @Entity @AllArgsConstructor @NoArgsConstructor @Table(name="CANDIDATES")
 public class Candidate {
-    @Id
+    @Id @Setter @Getter
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Getter @Setter
-    private String firstNme;
+    private String firstName;
     @Getter @Setter
     private String lastName;
     @Getter @Setter
@@ -29,7 +29,7 @@ public class Candidate {
     public String toString() {
         return "Candidate{" +
                 "id=" + id +
-                ", firstNme='" + firstNme + '\'' +
+                ", firstNme='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
@@ -37,4 +37,5 @@ public class Candidate {
                 ", preferences='" + preferences + '\'' +
                 '}';
     }
+
 }

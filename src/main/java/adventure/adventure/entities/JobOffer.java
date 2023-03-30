@@ -29,6 +29,7 @@ public class JobOffer {
     @Getter @Setter
     private double pensja;
     @Getter @Setter
+    //prawdopodbnie jest to do zmiany
     private Date data_skladania;
 
 

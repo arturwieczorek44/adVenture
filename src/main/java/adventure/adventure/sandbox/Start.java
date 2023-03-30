@@ -1,22 +1,27 @@
 package adventure.adventure.sandbox;
 
 import adventure.adventure.entities.Candidate;
+import adventure.adventure.entities.JobOffer;
 import adventure.adventure.repositories.CandidateRepository;
+import adventure.adventure.repositories.JobOfferRepository;
 import adventure.adventure.utilities.DegreesOfEducation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
+import java.util.Date;
 
 
 @Component
 public class Start {
     //to jest utworzone tylko w ramach testów jbc
     private final CandidateRepository candidateRepository;
+    private final JobOfferRepository jobOfferRepository;
     @Autowired
-    public Start (CandidateRepository candidateRepository){
+    public Start (CandidateRepository candidateRepository, JobOfferRepository jobOfferRepository){
         this.candidateRepository= candidateRepository;
+        this.jobOfferRepository = jobOfferRepository;
     }
     @EventListener(ApplicationReadyEvent.class)
     public void runExample(){
@@ -33,6 +38,9 @@ public class Start {
         Iterable<Candidate> allCandidates = candidateRepository.findAll();
         System.out.println("Current database Candidate's records:");
         allCandidates.forEach(System.out::println);
+        JobOffer jobOffer = new JobOffer(5L,"Rolnik","żyje z dotacji","Brak","Kraków",1550,new Date(2000, 11, 21));
+        jobOfferRepository.save(jobOffer);
+        System.out.println(jobOffer);
 
 
 

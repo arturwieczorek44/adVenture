@@ -6,13 +6,15 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
-@AllArgsConstructor
 @NoArgsConstructor
 @Table(name="JobOffer")
 public class JobOffer {
+
+
     @Id
     @Setter
     @Getter
@@ -30,7 +32,7 @@ public class JobOffer {
     private double pensja;
     @Getter @Setter
     //prawdopodbnie jest to do zmiany
-    private Date data_skladania;
+    private LocalDate data_skladania;
 
 
     @Override
@@ -44,5 +46,13 @@ public class JobOffer {
                 ", pensja=" + pensja +
                 ", data_skladania=" + data_skladania +
                 '}';
+    }
+    public JobOffer(String nazwa_stanowiska, String opis, String wymagania, String lokalizacja, double pensja, LocalDate data_skladania) {
+        this.nazwa_stanowiska = nazwa_stanowiska;
+        this.opis = opis;
+        this.wymagania = wymagania;
+        this.lokalizacja = lokalizacja;
+        this.pensja = pensja;
+        this.data_skladania = data_skladania;
     }
 }

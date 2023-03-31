@@ -22,5 +22,8 @@ public class Application {
     @Column(name = "status", length = 20)
     private String status;
 
+//    private Long candidateId;
+//    private Long jobOfferId;
+
 
 }

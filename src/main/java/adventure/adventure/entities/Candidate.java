@@ -7,19 +7,19 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity @AllArgsConstructor @NoArgsConstructor @Table(name="CANDIDATES")
-public class Candidate {
-    @Id @Setter @Getter
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    @Getter @Setter
-    private String firstName;
-    @Getter @Setter
-    private String lastName;
-    @Getter @Setter
-    private String email;
-    @Getter @Setter
-    private String phoneNumber;
+@Entity @NoArgsConstructor @Table(name="CANDIDATES")
+public class Candidate extends Person {
+    //        Candidate candidate1= new Candidate("Wojciech","Krzysztoszowski","wkk@pw.lp","997", DegreesOfEducation.DOCTORATE,"mobing");
+    public Candidate(String firstName, String lastName, String phoneNumber, String email,DegreesOfEducation degreeOfEducation, String preferences) {
+        super.setFirstName(firstName);
+        super.setLastName(lastName);
+        super.setPhoneNumber(phoneNumber);
+        super.setEmail(email);
+        this.degreeOfEducation = degreeOfEducation;
+        this.preferences = preferences;
+
+    }
+
     @Getter @Setter @Enumerated(EnumType.STRING)
     private DegreesOfEducation degreeOfEducation;
     @Getter @Setter
@@ -28,14 +28,8 @@ public class Candidate {
     @Override
     public String toString() {
         return "Candidate{" +
-                "id=" + id +
-                ", firstNme='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", degreeOfEducation=" + degreeOfEducation +
+                "degreeOfEducation=" + degreeOfEducation +
                 ", preferences='" + preferences + '\'' +
-                '}';
+                "} " + super.toString();
     }
-
 }

@@ -5,7 +5,7 @@ spring:
     properties:
       hibernate:
         hbm2ddl:
-          auto: validate
+          auto: create
   h2:
     console:
       enabled: true

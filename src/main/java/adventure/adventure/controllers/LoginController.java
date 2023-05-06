@@ -6,13 +6,13 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/login_form")
 public class LoginController {
 
-    @GetMapping()
+    @GetMapping
     public String showLoginForm()
     {
-        return "login_form";
+        return "loginform";
     }
 
-    @PostMapping()
+    @PostMapping
     public String login(@RequestParam String username, @RequestParam String password) {
         return "/";
     }

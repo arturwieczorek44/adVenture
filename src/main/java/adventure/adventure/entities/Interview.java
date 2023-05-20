@@ -36,4 +36,5 @@ public class Interview {
         this.notes = notes;
         this.result = result;
     }
+
 }

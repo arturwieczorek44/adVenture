@@ -19,11 +19,13 @@ public class Application {
     @Column(name = "application_date")
     private LocalDate applicationDate;
 
+    @Setter @Getter
     @Column(name = "status", length = 20)
     private String status;
 
 //    private Long candidateId;
 //    private Long jobOfferId;
+
 
 
 }

@@ -19,4 +19,9 @@ public class DashboardController {
         // zwróćmy nazwę szablonu Thymeleaf, który będzie renderowany jako widok dashboardu
         return "dashboard";
     }
+
+    @GetMapping("/login")
+    public String showLoginForm() {
+        return "login";
+    }
 }

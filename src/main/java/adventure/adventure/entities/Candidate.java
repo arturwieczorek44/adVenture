@@ -2,13 +2,12 @@ package adventure.adventure.entities;
 
 import adventure.adventure.utilities.DegreesOfEducation;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity @NoArgsConstructor @Table(name="CANDIDATES")
-public class Candidate extends Person {
+public class Candidate extends User {
     //        Candidate candidate1= new Candidate("Wojciech","Krzysztoszowski","wkk@pw.lp","997", DegreesOfEducation.DOCTORATE,"mobing");
     public Candidate(String firstName, String lastName, String phoneNumber, String email,DegreesOfEducation degreeOfEducation, String preferences) {
         super.setFirstName(firstName);

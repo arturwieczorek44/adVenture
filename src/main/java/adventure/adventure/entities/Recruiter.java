@@ -1,6 +1,5 @@
 package adventure.adventure.entities;
 
-import adventure.adventure.utilities.DegreesOfEducation;
 import adventure.adventure.utilities.DegreesOfRecruiters;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -13,7 +12,7 @@ import lombok.Setter;
 @Entity
 @NoArgsConstructor
 @Table(name="Recruiters")
-public class Recruiter extends Person{
+public class Recruiter extends User {
     @Getter
     @Setter
     @Enumerated(EnumType.STRING)

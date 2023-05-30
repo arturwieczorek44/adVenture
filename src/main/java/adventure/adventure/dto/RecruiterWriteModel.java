@@ -1,5 +1,6 @@
 package adventure.adventure.dto;
 
+import adventure.adventure.entities.Person;
 import adventure.adventure.entities.Recruiter;
 import adventure.adventure.utilities.DegreesOfRecruiters;
 
@@ -23,8 +24,8 @@ public class RecruiterWriteModel extends PersonWriteModel {
     }
 
     // Metoda służąca do konwersji z write model na encję
-    public Recruiter toEntity() {
+    public Person toEntity() {
         Recruiter recruiter = new Recruiter(getFirstName(), getLastName(), getPhoneNumber(), getEmail(), getDegreeOfRecruiter());
-        return recruiter;
+        return new Person();
     }
 }

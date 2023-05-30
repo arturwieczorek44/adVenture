@@ -1,5 +1,6 @@
 package adventure.adventure.controllers;
 
+
 import adventure.adventure.entities.Role;
 import adventure.adventure.entities.User;
 import adventure.adventure.repositories.RoleRepository;
@@ -32,7 +33,7 @@ public class RoleController {
             roleRepository.save(role);
         }
 
-        user.getRoles().add(role);
+      //  user.setRole(role);
         userRepository.save(user);
 
         return ResponseEntity.ok("Role " + roleName + " added to user " + user.getUsername());

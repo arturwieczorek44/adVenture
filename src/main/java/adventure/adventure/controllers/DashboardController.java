@@ -3,14 +3,16 @@ package adventure.adventure.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.Arrays;
 import java.util.List;
 
 @Controller
+@RequestMapping("/dashboard")
 public class DashboardController {
 
-    @GetMapping("/dashboard")
+    @GetMapping()
     public String showDashboard(Model model) {
         // dodajmy przykładowe dane do modelu, które będą wyświetlane na stronie
         List<String> data = Arrays.asList("Dane 1", "Dane 2", "Dane 3");
@@ -20,8 +22,10 @@ public class DashboardController {
         return "dashboard";
     }
 
-    @GetMapping("/login")
+    /*
+    @GetMapping()
     public String showLoginForm() {
-        return "login";
+        return "login_form";
     }
+     */
 }

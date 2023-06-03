@@ -27,16 +27,10 @@
 
 
                     <!--/*@thymesVar id="user" type="adventure.adventure.entities.User"*/-->
-                    <form method="POST" class="mt-5" th:action="@{/login_form}" >
-                        <div class="form-group">
-                            <label for="username">Username:</label>
-                            <input type="text" class="form-control" id="username" name="username" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="password">Password:</label>
-                            <input type="password" class="form-control" id="password" name="password" required>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Login</button>
+                    <form th:action="@{/login}" method="post">
+                        <div><label> User Name : <input type="text" name="username"/> </label></div>
+                        <div><label> Password: <input type="password" name="password"/> </label></div>
+                        <div><input type="submit" value="Sign In"/></div>
                     </form>
                 </div>
             </div>

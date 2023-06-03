@@ -17,7 +17,7 @@ import java.nio.file.Paths;
     public static String UPLOAD_DIRECTORY = System.getProperty("user.dir") + "/uploads";
 
     @GetMapping("/uploadimage") public String displayUploadForm() {
-        return "index";
+        return "upload";
     }
 
     @PostMapping("/upload") public String uploadImage(Model model, @RequestParam("image") MultipartFile file) throws IOException {
@@ -26,7 +26,7 @@ import java.nio.file.Paths;
         fileNames.append(file.getOriginalFilename());
         Files.write(fileNameAndPath, file.getBytes());
         model.addAttribute("msg", "Uploaded images: " + fileNames.toString());
-        return "index";
+        return "upload";
     }
 
 }

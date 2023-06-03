@@ -3,10 +3,31 @@ package adventure.adventure.security;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 public class SecurityConfig  /*extends WebSecurityConfigurerAdapter*/  {
+
+
+    @Bean
+    public UserDetailsService userDetailsService() {
+        UserDetails user = User.withDefaultPasswordEncoder()
+                .username("user1")
+                .password("user1")
+                .roles("USER")
+                .build();
+        UserDetails admin = User.withDefaultPasswordEncoder()
+                .username("admin")
+                .password("admin1")
+                .roles("ADMIN")
+                .build();
+
+        return new InMemoryUserDetailsManager(admin, user);
+    }
 
     /*@Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -34,9 +55,12 @@ public class SecurityConfig  /*extends WebSecurityConfigurerAdapter*/  {
     SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
 
         // Permit All Requests inside the Web Application
-        http.authorizeHttpRequests().anyRequest().permitAll().
-                and().formLogin()
-                .and().httpBasic();
+        http.authorizeHttpRequests()
+                .requestMatchers("/dashboard").hasRole("USER")
+                .anyRequest().permitAll()
+                .and().formLogin().permitAll();
+
+               // .and().httpBasic();
 
         // Deny All Requests inside the Web Application
             /*http.authorizeHttpRequests().anyRequest().denyAll().
